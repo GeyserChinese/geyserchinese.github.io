@@ -1,6 +1,8 @@
 import { translate } from "@docusaurus/Translate"
 import { Providers } from "../types/providers"
 
+// Do not modify the structure of this file without updating the extraction logic in create-providers-json.ts
+
 const descriptionTemplates = {
     default: translate({
         id: 'providers.templates.default',
@@ -33,7 +35,10 @@ export const providersData: Providers = {
         {
             name: 'Arth Hosting',
             url: 'https://arthmc.xyz/',
-            description: "Geyser is installed and configured on all servers by default. You can disable it in the 'Manage Plugins' menu."
+            description: translate({
+                id: 'providers.provider.arth_hosting.description',
+                message: "Geyser is installed and configured on all servers by default. You can disable it in the 'Manage Plugins' menu."
+            })
         },
         {
             name: 'Aternos',
@@ -92,11 +97,11 @@ export const providersData: Providers = {
             })
         },
         {
-            name: 'MCProHosting',
-            url: 'https://mcprohosting.com/',
+            name: 'MCServerHost',
+            url: 'https://mcserverhost.com/',
             description: translate({
-                id: 'providers.provider.mcprohosting.description',
-                message: "Click 'Enable Bedrock Support' on the server dashboard and follow the steps. For manual installation: Add 'Destination Port' `19132` with 'Protocol UDP' to the port forward mapping and connect to the given source port."
+                id: 'providers.provider.mcserverhost.description',
+                message: "Under the server configuration, select 'Crossplay' to automatically install Geyser and Floodgate. Join with the connection address. To update Geyser and Floodgate, replace the plugin jars in the server manager and restart the server."
             })
         },
         {
@@ -433,7 +438,10 @@ export const providersData: Providers = {
         {
             name: 'MCFORFREE.DE',
             url: 'https://mcforfree.de/',
-            description: 'Create an extra port in the game panel, then change the `port` in the `bedrock` section to the newly created port. To connect on Bedrock edition, use the Java server\'s IP and the port you\'ve created. It may take a few minutes for the port to become active.'
+            description: translate({
+                id: 'providers.provider.mcforfree.de.description',
+                message: 'Create an extra port in the game panel, then change the `port` in the `bedrock` section to the newly created port. To connect on Bedrock edition, use the Java server\'s IP and the port you\'ve created. It may take a few minutes for the port to become active.'
+            })
         },
         {
             name: 'MCPEhost.ru',
@@ -496,7 +504,10 @@ export const providersData: Providers = {
         {
             name: 'PaperNodes',
             url: 'https://papernodes.com/',
-            description: 'Enable clone-remote-port (or manually set the Bedrock port to the Java port), and connect with the Java IP and port. Alternatively, you can contact the host to request an additional port or a dedicated IP.'
+            description: translate({
+                id: 'providers.provider.papernodes.description',
+                message: 'Enable clone-remote-port (or manually set the Bedrock port to the Java port), and connect with the Java IP and port. Alternatively, you can contact the host to request an additional port or a dedicated IP.'
+            })
         },
         {
             name: 'Pebblehost',
@@ -629,9 +640,20 @@ export const providersData: Providers = {
             })
         },
         {
+            name: 'Wasabi Hosting',
+            url: 'https://wasabihosting.com',
+            description: translate({
+                id: 'providers.provider.wasabihosting.description',
+                message: "Install Geyser with the plugin installer. Use the same port as your Java server in the Geyser config. Connect with the same address and port as your Java server."
+            })
+        },
+        {
             name: "Wepwawet",
             url: "https://wepwawet.net/",
-            description: "Add a new port in the Network tab. Use this new port as the bedrock port."
+            description: translate({
+                id: 'providers.provider.wepwawet.description',
+                message: "Add a new port in the Network tab. Use this new port as the bedrock port."
+            })
         },
         {
             name: 'WinterNode',
