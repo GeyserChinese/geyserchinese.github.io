@@ -5,51 +5,48 @@ hide_title: true
 ---
 
 :::info
-You need to have Java 17 or higher installed to run Geyser. To run Geyser Standalone on Android, see the bottom of this page.
+你需要 Java 17 或更改的版本以运行 Geyser.
 :::
 
 :::caution
-Geyser-Standalone is NOT a plugin or mod! It is a standalone Java program that you would run separately to your Java Edition server.
+Geyser-Standalone 不是一个插件或 mod! 它是一个独立的程序用来连接 Java 服务器.
 :::
 
 #### General Setup & Configuration \{#general-setup--configuration}
 
-1. Download Geyser Standalone from [here](/download).
-2. Create a new folder for Geyser, and drop the jar in there.
-3. Start Geyser Standalone:
+1. [点击下载合适的 Geyser 版本](/download).
+2. 创建一个新文件夹, 将 Geyser 放入其中.
+3. 运行:
    - **GUI** (Recommended):   
-   Double-click the jar file and all the necessary files for Geyser will be created.
-   - Or use the **console setup**:   
-   Create a new bat or startup script, similar to the one you'd use for a Spigot/Paper server, and take a look at [this](/wiki/geyser/creating-a-startup-script/) page for what to put into it.   
-   Run the startup script/bat, and all the necessary files for Geyser will be created.
+   双击 .jar 文件.
+   或创建一个其中脚本以启动(详见[这](/wiki/geyser/creating-a-startup-script/))
 
-4. Open your Geyser config (`config.yml`), and find the following:
+4. 打开 Geyser 配置文件夹内的 `config.yml`, 你将会看到如下内容:
 
    ```yaml
-   bedrock: 
-      # The IP address that will listen for connections. 
-      # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server. 
-      #address: 0.0.0.0 
+    bedrock:
+      # 允许访问的 IP 地址
+      # 通常来说, 你不应该取消注释, 除非你要限制只有来自某个 IP 地址的访问被允许.
+      #address: 0.0.0.0
 
-      # The port that will listen for connections. This is the port that Bedrock players will use to connect to your server.
-      port: 19132 
+      # 基岩版 服务器端口.
+      port: 19132
    ```
-   The `port` is the port Bedrock players will enter to connect to the server.   
-   Uncommenting and changing `address` here is only needed if you need to limit connections to a specific IP address.
-     
-
-   To configure which Java Edition server Geyser Standalone will send players to, find the remote section:
+   以上内容是配置模拟的基岩版服务器的信息.
+   然后, 你需要配置你需要连接到的 Java 服务器信息.
    ```yaml
    remote:
-      # The IP address of the remote (Java Edition) server
-      # If it is "auto", for standalone version the remote address will be set to 127.0.0.1.
-      address: auto
-
-      # The port of the remote (Java Edition) server
-      port: 25565
-      
-      # Authentication type. Can be offline, online, or floodgate (see https://github.com/GeyserMC/Geyser/wiki/Floodgate).
-      auth-type: online
+     # Java 服务器的 IP 地址(一般用于独立版 Geyser).
+     # 对于独立版本来说, "auto" 代表着 127.0.0.1 .
+     # 对于其他版本来说, 最好保持为 "auto", 以便 Geyser 自动配置地址, 端口, 客户端登录方式 和 一些 Floodgate 配置.
+     address: auto
+     # Java 服务器端口.
+     # 插件版本可设置为 "auto" 自动选择端口.
+     port: 25565
+     # 登录方式. 可为 "offline", "online", 或者 "floodgate" (详见 https://github.com/GeyserMC/Geyser/wiki/Floodgate).
+     # 建议将 `address` 项保持为 "auto" 以便于自动进行 Floodgate 配置.
+     # 如果安装了 Floodgate 并且 `address:` 设置项设为 "auto", 那么本设置项将自动改为 "floodgate".
+     auth-type: online
    ```
    Here, change `address` to the Java server's address, or to `auto` if the server is on the same machine as Geyser-Standalone. 
 Then, change `port` to the Java server's port. If you have set up Floodgate on the remote Java server, you can set auth-type to "floodgate" - otherwise, 

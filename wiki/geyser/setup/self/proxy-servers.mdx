@@ -8,22 +8,22 @@ hide_title: true
 import { Versions } from '@site/src/components/Versions'
 
 :::info
-- Install Geyser **only** on the proxy server! You can install Floodgate on all servers for better skin support & network-wide Floodgate API availability for other plugins.   
-- All servers on the network must accept <Versions platform="java"/> Java clients, as Geyser imitates one.  
+- 请仅在代理服务端上安装 Geyser! Floodgate 允许并建议安装在所有子服务器.
+- 如果基岩版玩家想要进入一个子服, 那么这个子服必须允许 <Versions platform="java"/> Java 客户端.
 :::
 
-1. Download the plugin for your proxy software from [the download page](/download).
-2. Place the Geyser jar in the `plugins` folder, and restart the server.
-3. Open your Geyser config, located in `/plugins/Geyser-xyz/config.yml`, and find the following:
+1. [点击下载合适的 Geyser 版本](/download).
+2. 将 Geyser 文件放入 `plugins` 文件夹, 然后重启服务器.
+3. 打开 Geyser 配置文件夹内的 `config.yml`, 你将会看到如下内容:
 
     ```yaml
-    bedrock: 
-        # The IP address that will listen for connections. 
-        # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server. 
-        #address: 0.0.0.0 
+    bedrock:
+      # 允许访问的 IP 地址
+      # 通常来说, 你不应该取消注释, 除非你要限制只有来自某个 IP 地址的访问被允许.
+      #address: 0.0.0.0
 
-        # The port that will listen for connections. This is the port that Bedrock players will use to connect to your server.
-        port: 19132 
+      # 基岩版 服务器端口.
+      port: 19132
     ```
     The vital part is the port. This is the port that Bedrock players will use to connect to your server!
     If you enable `clone-remote-port`, the port will be overridden and the Java port is used.

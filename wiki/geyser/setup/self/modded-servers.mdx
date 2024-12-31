@@ -7,26 +7,26 @@ hide_title: true
 import { Versions } from '@site/src/components/Versions'
 
 :::caution
-Geyser-Fabric and Geyser-NeoForge run  **only** on a <Versions platform="java"/> server.
-See [this page](/wiki/geyser/supported-versions#fabric-neoforge-servers) for more details.
+Geyser 的模组版本 **只能** 运行在 <Versions platform="java"/> 版本的 Java 服务器上.
+详见 [此页](/wiki/geyser/supported-versions#fabric-neoforge-servers) 获取更更多信息.
 :::
 
 :::info
-Geyser only works with **server-side** mods. Mods that require a client-side install will not work!
+Geyser 只能与 **服务端** 模组在一起运行. 需要在客户端上安装的模组将无法运行!
 :::
 
-1. Download the mod from [the download page](/download).
-2. Place the Geyser mod jar in the `mods` folder, and restart the server. **For Fabric, you will also need [FabricAPI](https://modrinth.com/mod/fabric-api).**
-3. Open your Geyser config, located in `/config/Geyser-Fabric/config.yml` (or `/config/Geyser-NeoForge/config.yml`), and find the following: 
+1. [点击下载合适的 Geyser 版本](/download).
+2. 将 Geyser 文件放入 `mods` 文件夹, 然后重启服务器. **注意, 如果你使用 Fabric, 你还需要 [FabricAPI](https://modrinth.com/mod/fabric-api).**
+3. 打开 Geyser 配置文件夹内的 `config.yml`, 你将会看到如下内容:
 
     ```yaml
-    bedrock: 
-      # The IP address that will listen for connections. 
-      # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server. 
-      #address: 0.0.0.0 
+    bedrock:
+      # 允许访问的 IP 地址
+      # 通常来说, 你不应该取消注释, 除非你要限制只有来自某个 IP 地址的访问被允许.
+      #address: 0.0.0.0
 
-      # The port that will listen for connections. This is the port that Bedrock players will use to connect to your server.
-      port: 19132 
+      # 基岩版 服务器端口.
+      port: 19132
     ```
    The vital part is the port. This is the port that Bedrock players will use to connect to your server!
    If you enable `clone-remote-port`, the port will be overridden and the Java port is used.

@@ -7,9 +7,8 @@ hide_title: true
 import { Versions } from '@site/src/components/Versions'
 
 :::info
-- Install Geyser **only** on the proxy server! You can install Floodgate on all servers for better skin support & 
-    network-wide Floodgate API availability for other plugins.
-- All servers on the network must accept <Versions platform="java"/> Java clients, as Geyser imitates one.  
+- 请仅在代理服务端上安装 Geyser! Floodgate 允许并建议安装在所有子服务器.
+- 如果基岩版玩家想要进入一个子服, 那么这个子服必须允许 <Versions platform="java"/> Java 客户端.
 :::
 
 1. 选择你的面板服务商查看相关事项.
@@ -18,26 +17,22 @@ import { Versions } from '@site/src/components/Versions'
 4. 打开 Geyser 配置文件夹内的 `config.yml`, 你将会看到如下内容:
 
     ```yaml
-    bedrock: 
-        # The IP address that will listen for connections. 
-        # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server. 
-        #address: 0.0.0.0
+    bedrock:
+      # 允许访问的 IP 地址
+      # 通常来说, 你不应该取消注释, 除非你要限制只有来自某个 IP 地址的访问被允许.
+      #address: 0.0.0.0
 
-        # The port that will listen for connections. This is the port that Bedrock players will use to connect to your server.
-        port: 19132
+      # 基岩版 服务器端口.
+      port: 19132
 
-        # Some hosting services change your Java port everytime you start the server and require the same port to be used for Bedrock. 
-        # This option makes the Bedrock port the same as the Java port every time you start the server. 
-        # This option is for the plugin version only. 
-        clone-remote-port: false
+      # 该选项使每次启动服务器时, 基岩版服务器端口与 Java 版服务器端口相同.
+      clone-remote-port: false
     ``` 
-    The vital part is the port. This is the port that Bedrock players will use to connect to your server. 
-    Follow the instructions in the provider selector - change the port, and if necessary, `clone-remote-port` & `address`.
-    If `clone-remote-port` is enabled, the bedrock port will be overwritten with the Java port!   
-    **Important**: Other services/plugins that rely on ports with UDP, such as Voice Chats or Query, cannot share the port with Geyser.
+    你只需要根据注释配置它们.
+    详见[理解配置](/wiki/geyser/understanding-the-config/) 获取更更多信息.
 
-5. Verify whether connections are possible by running `geyser connectiontest <ip> <port>` in the console.
+5. 使用 `geyser connectiontest <ip> <port>` 命令验证是否能够连接.
 
 :::info
-To allow Bedrock Edition players to join your server without needing to log in to a paid Java Edition account, you can use <a href="/wiki/floodgate/setup/">Floodgate</a>.
+如果想要基岩版玩家不使用正版账户登录, 请使用 <a href="/wiki/floodgate/setup/">Floodgate</a>.
 :::
