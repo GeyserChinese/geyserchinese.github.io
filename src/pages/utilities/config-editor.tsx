@@ -17,12 +17,12 @@ const ConfigEditorPage: React.FC = () => {
         try {
             const response = await fetch('https://raw.githubusercontent.com/GeyserMC/Geyser/master/core/src/main/resources/config.yml');
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('网络请求失败');
             }
             const text = await response.text();
             handleConfigLoad(text);
         } catch (error) {
-            console.error('Failed to fetch default config:', error);
+            console.error('无法加载默认文件夹:', error);
         }
     }
 
@@ -31,7 +31,7 @@ const ConfigEditorPage: React.FC = () => {
 
         // Makse sure the file is a .yml file
         if (!fileName.name.endsWith('.yml')) {
-            alert('Please select a .yml config file!');
+            alert('请选择一个 .yml 格式的配置文件!');
             return;
         }
 
@@ -94,7 +94,7 @@ const ConfigEditorPage: React.FC = () => {
                 }
                 ignore = false;
                 if (commented) {
-                    currentComment += '<strong>Note: This option is commented out by default. It will be automatically uncommented if modified.</strong>' + '<br>';
+                    currentComment += '<strong>注意: 这个配置项被注释了. 如果你更改它的值, 它将会取消注释.</strong>' + '<br>';
                 }
 
                 currentComment = currentComment.replace(URL_REGEX, function ($0) {
@@ -348,8 +348,8 @@ const ConfigEditorPage: React.FC = () => {
 export default function ConfigEditor(): JSX.Element {
     return (
         <Layout
-            title={`Config Editor`}
-            description='Edit your Geyser configuration.'
+            title={`配置编辑器`}
+            description='编辑你的 Geyser 配置文件'
         >
             <main>
                 <div className='container container--fluid margin-vert--lg'>
