@@ -56,7 +56,7 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: 'category',
-            label: 'Common Issues',
+            label: '常见异常',
             link: {
                 type: 'doc',
                 id: 'geyser/common-issues'
@@ -67,7 +67,7 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: 'category',
-            label: 'Configuring Geyser',
+            label: '配置 Geyser',
             link: {
                 type: 'doc',
                 id: 'geyser/understanding-the-config',
@@ -80,7 +80,7 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: 'category',
-            label: 'FAQ',
+            label: '常见问题',
             link: {
                 type: 'doc',
                 id: 'geyser/faq'
@@ -93,7 +93,7 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: 'category',
-            label: 'Custom Resource Packs',
+            label: '自定义资源包',
             link: {
                 type: 'doc',
                 id: 'geyser/custom-resource-packs'
