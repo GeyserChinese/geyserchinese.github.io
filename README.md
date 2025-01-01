@@ -1,5 +1,7 @@
 # Website
 
+一个民间翻译, 与官方没有任何关系
+
 This is the Geyser website is built using [Docusaurus 3](https://docusaurus.io/).
 
 ## Contributing
