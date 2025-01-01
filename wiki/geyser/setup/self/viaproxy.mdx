@@ -5,8 +5,8 @@ description: Learn how to set up Geyser with ViaProxy.
 
 1. [安装并配置 ViaProxy](https://github.com/ViaVersion/ViaProxy?tab=readme-ov-file#usage-for-players-gui).
 2. [点击下载合适的 Geyser 版本](/download).
-3. Place the Geyser-ViaProxy.jar in the `plugins` folder, and restart ViaProxy.
-4. Open your Geyser config, located in `/plugins/Geyser/config.yml`, and find the following:
+3. 将 Geyser 文件放入 `plugins` 文件夹, 然后重启服务器.
+4. 打开 Geyser 配置文件夹内的 `config.yml`, 你将会看到如下内容:
 
     ```yaml
     bedrock:
@@ -17,39 +17,26 @@ description: Learn how to set up Geyser with ViaProxy.
       # 基岩版 服务器端口.
       port: 19132
     ```
-    The vital part is the port. This is the port that Bedrock players will use to connect to your server!
-    If you enable `clone-remote-port`, the port will be overridden and the ViaProxy port is used.
-    Since you are self-hosting, you can choose the port freely - the default port is 19132.
+    你只需要根据注释配置它们.
+    详见[理解配置](/wiki/geyser/understanding-the-config/) 获取更更多信息.
 
-    **Important**: Other services/plugins that rely on ports with UDP, such as Voice Chats or Query, cannot share the port with Geyser.
+    如果你使用 ViaProxy 图形化程序, 你可以使用它的账号管理系统让基岩版玩家加入在线验证服务器. 如果你使用 ViaProxy 命令行版本, 那么你需要 [下载并使用 Floodgate](/wiki/floodgate/setup). <br/>
+    注意: `auth-type` 设置项将会失效, 并由 ViaProxy 自动处理.
 
-    If you use the ViaProxy GUI you can use its account management system to join online mode servers with Bedrock Edition. If you use the ViaProxy CLI and want to allow Bedrock players to join your online mode server you have to install and [set up Floodgate](/wiki/floodgate/setup). <br/>
+5. 连接到你的服务器:
 
-    NOTE: The value of the `auth-type` field is ignored and managed by ViaProxy automatically.
+   **本地连接**
+   在同台主机上, 你可以使用 `localhost`, 或者是 `127.0.0.1` 作为连接地址.
+   你可能遇到环回限制(Loopback restrictions), 详见[此处修复](/wiki/geyser/fixing-unable-to-connect-to-world#using-geyser-on-the-same-computer).
+   在同一子网下的其他设备可以使用你的本地 IPv4 作为连接地址.
+   或者你可以通过基岩版客户端中的 好友 选项卡加入服务器.
 
-5. Connecting to your server
-    
-    **Connecting locally in the same network**
+   **远程连接**
+   就像让你的 Java 服务器可以被连接一样进行操作.
+   不同的是, 你必须保证 Geyser 端口必须使用 UDP 协议.
 
-    On the same device as the server, you can connect using `localhost`, or `127.0.0.1` as the address.
-    Do note: When hosting and playing on the same Windows device, you will need the [loopback fix](/wiki/geyser/fixing-unable-to-connect-to-world#using-geyser-on-the-same-computer).
-    Other devices in the same local network can use your local IPv4 to connect - it starts with `10.` or `192.168.`.
-    
-    **Connecting from a different network**
-
-    You will need to expose the port Geyser runs on to the Internet if you want players from outside your network to join.
-    To achieve that, you have two options:
-
-    - Port forwarding: Open the Geyser port (e.g. 19132) on the UDP protocol in your router/modem, and in the Windows/Linux firewall. 
-   [Our port forwarding guide](/wiki/geyser/port-forwarding) explains how to do this in detail.
-   After doing this, players can connect with your public IPv4 + port to your server.
-
-    - playit.gg: Instead of opening a port (which might not be an option/if you do not want to expose your home ip), you can use
-   the playit.gg service to create a tunnel for you to route the traffic through. See our [playit.gg guide](/wiki/geyser/playit-gg).
-   Ngrok will not work since it is TCP-only.
-
-6. Verify whether connections from other networks are possible by running `geyser connectiontest <ip> <port>` in the console.
+6. 使用 `geyser connectiontest <ip> <port>` 命令验证是否能够连接.
 
 :::info
-To allow Bedrock Edition players to join your server without needing to log in to a paid Java Edition account, you can use [Floodgate](/wiki/floodgate/setup).
+如果想要基岩版玩家不使用正版账户登录, 请使用 <a href="/wiki/floodgate/setup/">Floodgate</a>.
 :::

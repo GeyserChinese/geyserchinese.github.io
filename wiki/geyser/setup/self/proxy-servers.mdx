@@ -25,33 +25,23 @@ import { Versions } from '@site/src/components/Versions'
       # 基岩版 服务器端口.
       port: 19132
     ```
-    The vital part is the port. This is the port that Bedrock players will use to connect to your server!
-    If you enable `clone-remote-port`, the port will be overridden and the Java port is used.
-    Since you are self-hosting, you can choose the port freely - the default port is 19132.   
-   **Important**: Other services/plugins that rely on ports with UDP, such as Voice Chats or Query, cannot share the port with Geyser.
-     
+    你只需要根据注释配置它们.
+    详见[理解配置](/wiki/geyser/understanding-the-config/) 获取更更多信息.
 
-4. Connecting to your server
-        
-    **Connecting locally in the same network**   
-    On the same device as the server, you can connect using `localhost`, or `127.0.0.1` as the address.
-    Do note: When hosting and playing on the same Windows device, you will need the [loopback fix](/wiki/geyser/fixing-unable-to-connect-to-world#using-geyser-on-the-same-computer).
-    Other devices in the same local network can use your local IPv4 to connect - it starts with `10.` or `192.168.`.
-        
-    **Connecting from a different network**  
-    You will need to expose the port Geyser runs on to the Internet if you want players from outside your network to join.
-    To achieve that, you have two options:   
+4. 连接到你的服务器:
 
-    - Port forwarding: Open the Geyser port (e.g. 19132) on the UDP protocol in your router/modem, and in the Windows/Linux firewall.
-   [Our port forwarding guide](/wiki/geyser/port-forwarding) explains how to do this in detail.
-   Then, players can connect with your public IPv4 + port to your server.   
+   **本地连接**
+   在同台主机上, 你可以使用 `localhost`, 或者是 `127.0.0.1` 作为连接地址.
+   你可能遇到环回限制(Loopback restrictions), 详见[此处修复](/wiki/geyser/fixing-unable-to-connect-to-world#using-geyser-on-the-same-computer).
+   在同一子网下的其他设备可以使用你的本地 IPv4 作为连接地址.
+   或者你可以通过基岩版客户端中的 好友 选项卡加入服务器.
 
-    - playit.gg: Instead of opening a port (which might not be an option/if you do not want to expose your home ip), you can use
-   the playit.gg service to create a tunnel for you to route the traffic through. See our [playit.gg guide](/wiki/geyser/playit-gg).
-   Ngrok will not work since it is TCP-only.   
+   **远程连接**
+   就像让你的 Java 服务器可以被连接一样进行操作.
+   不同的是, 你必须保证 Geyser 端口必须使用 UDP 协议.
 
-5. Verify whether connections from other networks are possible by running `geyser connectiontest <ip> <port>` in the console.
+5. 使用 `geyser connectiontest <ip> <port>` 命令验证是否能够连接.
 
 :::info
-To allow Bedrock Edition players to join your server without needing to log in to a paid Java Edition account, you can use <a href="/wiki/floodgate/setup/">Floodgate</a>.
+如果想要基岩版玩家不使用正版账户登录, 请使用 <a href="/wiki/floodgate/setup/">Floodgate</a>.
 :::

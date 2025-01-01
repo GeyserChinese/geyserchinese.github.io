@@ -12,7 +12,7 @@ hide_title: true
 Geyser-Standalone 不是一个插件或 mod! 它是一个独立的程序用来连接 Java 服务器.
 :::
 
-#### General Setup & Configuration \{#general-setup--configuration}
+#### 安装 & 配置 \{#general-setup--configuration}
 
 1. [点击下载合适的 Geyser 版本](/download).
 2. 创建一个新文件夹, 将 Geyser 放入其中.
@@ -48,48 +48,38 @@ Geyser-Standalone 不是一个插件或 mod! 它是一个独立的程序用来�
      # 如果安装了 Floodgate 并且 `address:` 设置项设为 "auto", 那么本设置项将自动改为 "floodgate".
      auth-type: online
    ```
-   Here, change `address` to the Java server's address, or to `auto` if the server is on the same machine as Geyser-Standalone. 
-Then, change `port` to the Java server's port. If you have set up Floodgate on the remote Java server, you can set auth-type to "floodgate" - otherwise, 
-set it to either `online` for an online mode server, or `offline` for an offline mode server. To install and set up Floodgate with a Standalone server, see [here](/wiki/floodgate/setup).   
+   现在你可以配置你所想要连接的 Java 服务器了.
+   如果你所连接的服务器上安装了 Floodgate, 那么推荐你将 `auth-type` 更改为 "floodgate"([详见](/wiki/floodgate/setup?platform=standalone).
    
-5. Connecting to your server
-        
-   **Connecting locally in the same network**   
-   On the same device as the server, you can connect using `localhost`, or `127.0.0.1` as the address.
-   Do note: When hosting and playing on the same Windows device, you will need the [loopback fix](/wiki/geyser/fixing-unable-to-connect-to-world#using-geyser-on-the-same-computer).
-   Other devices in the same local network can use your local IPv4 to connect - it starts with `10.` or `192.168.`.
-   Alternatively, open Minecraft: Bedrock edition, and join the LAN-Server in the **Friends** tab.
-        
-   **Connecting from a different network**  
-   You will need to expose the port Geyser runs on to the Internet if you want players from outside your network to join.
-   To achieve that, you have two options:   
+5. 连接到你的服务器:
 
-    - Port forwarding: Open the Geyser port (e.g. 19132) on the UDP protocol in your router/modem, and in the Windows/Linux firewall.
-      After doing this, players can connect with your public IPv4 + port to your server.
-      See [here](/wiki/geyser/port-forwarding/) for a helpful guide.   
+   **本地连接**
+   在同台主机上, 你可以使用 `localhost`, 或者是 `127.0.0.1` 作为连接地址.
+   你可能遇到环回限制(Loopback restrictions), 详见[此处修复](/wiki/geyser/fixing-unable-to-connect-to-world#using-geyser-on-the-same-computer).
+   在同一子网下的其他设备可以使用你的本地 IPv4 作为连接地址.
+   或者你可以通过基岩版客户端中的 好友 选项卡加入服务器.
 
-    - playit.gg: Instead of opening a port (which might not be an option/if you do not want to expose your home ip), you can use
-      the playit.gg service to create a tunnel for you to route the traffic through. See our [playit.gg guide](/wiki/geyser/playit-gg).
-      Ngrok will not work since it is TCP-only.   
+   **远程连接**
+   就像让你的 Java 服务器可以被连接一样进行操作.
+   不同的是, 你必须保证 Geyser 端口必须使用 UDP 协议.
 
-6. Verify whether connections from other networks are possible by running `geyser connectiontest <ip> <port>` in the console.
+6. 使用 `geyser connectiontest <ip> <port>` 命令验证是否能够连接.
 
-#### Running Geyser-Standalone on Android \{#running-geyser-standalone-on-android}
+#### 在安卓上运行 Geyser 独立版 \{#running-geyser-standalone-on-android}
 
 :::caution
-Applications such as Termux on Android are capable of running Geyser, but this largely depends on how powerful your Android device is. Please do so at your own risk.
+安卓上的 Termux 等应用可以用来运行 Geyser, 但是它完全取决于你的设备如何, 请自行承担风险.
 :::
 
 ##### Termux (Android) \{#termux-android}
-1. Download and install [Termux](https://termux.com/)
-2. Run `pkg install openjdk-17`
-3. Run `wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone`
-4. Run `java -jar Geyser-Standalone.jar`
+1. 下载并安装 [Termux](https://termux.com/)
+2. 运行 `pkg install openjdk-17`
+3. 运行 `wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone`
+4. 运行 `java -jar Geyser-Standalone.jar`
 
-OR
+或者说
 
-We have an automated setup script for clean Termux installs, which might not work for all users. If the manual guide above does not work, try this.
-Run this to start the download/install:
+我们有一个用于 Termux 的自动安装脚本, 但它并不适用于所有用户. 如果上面的操作不起作用, 请尝试使用此方法. 运行此命令以开始下载并安装:
 ```
 curl https://gist.githubusercontent.com/rtm516/e3e07d6595ee41e05a38b03c0f4d7a80/raw/install.sh | bash
 ```
