@@ -15,7 +15,7 @@ const ConfigEditorPage: React.FC = () => {
 
     const loadDefault = async () => {
         try {
-            const response = await fetch('https://raw.githubusercontent.com/GeyserMC/Geyser/master/core/src/main/resources/config.yml');
+            const response = await fetch('https://raw.githubusercontent.com/GeyserChinese/geyserchinese.github.io/refs/heads/main/config_translation/geyser-config.yml');
             if (!response.ok) {
                 throw new Error('网络请求失败');
             }
@@ -124,7 +124,7 @@ const ConfigEditorPage: React.FC = () => {
             }
 
             if (commented) {
-                currentComment += '<strong>Note: This option is commented out by default. It will be automatically uncommented if modified.</strong>' + '<br>';
+                currentComment += '<strong>注意: 这个配置项被注释了. 如果你更改它的值, 它将会取消注释</strong>' + '<br>';
             }
 
             currentComment = currentComment.replace(URL_REGEX, function ($0) {
@@ -294,12 +294,12 @@ const ConfigEditorPage: React.FC = () => {
     const NoConfigSection = () => (
         <>
             <h1><Translate id='pages.configeditor.noconfigselected.heading'>No config selected.</Translate></h1>
-            <h3 className={styles.fontNormal}><Translate id='pages.configeditor.noconfigselected.subheading'>Upload a
-                file or get started with the default config!</Translate></h3>
+            <h3 className={styles.fontNormal}><Translate id='pages.configeditor.noconfigselected.subheading'>上传
+                你自己的配置文件或者是选择默认配置!</Translate></h3>
 
             <div className={styles.buttonsContainer}>
                 <button className={styles.button} onClick={loadDefault}>
-                    <Translate id='pages.configeditor.button.defaultconfig'>Default</Translate>
+                    <Translate id='pages.configeditor.button.defaultconfig'>默认配置</Translate>
                 </button>
 
                 <button className={styles.button} onClick={() => uploadRef.current.click()}>
