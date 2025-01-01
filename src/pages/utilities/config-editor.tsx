@@ -1,4 +1,3 @@
-import Translate from '@docusaurus/Translate';
 import HeroBanner from '@site/src/components/HeroBanner';
 import HeroBackground from '@site/static/img/site/split-background.webp';
 import Layout from '@theme/Layout';
@@ -330,8 +329,8 @@ const ConfigEditorPage: React.FC = () => {
     return (
         <>
             <HeroBanner
-                title={<Translate id='pages.configeditor.title'>Config Editor</Translate>}
-                subheading={<Translate id='pages.configeditor.subheading'>Edit your Geyser configuration.</Translate>}
+                title="配置编辑器"
+                subheading="编辑你的 Geyser 配置文件"
                 backgroundImage={HeroBackground}
             />
 
