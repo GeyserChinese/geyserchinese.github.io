@@ -293,8 +293,7 @@ const ConfigEditorPage: React.FC = () => {
     const NoConfigSection = () => (
         <>
             <h1>没有选择配置文件</h1>
-            <h3 className={styles.fontNormal}>上传
-                你自己的配置文件或者是选择默认配置!</h3>
+            <h3 className={styles.fontNormal}>上传你自己的配置文件或者是选择默认配置!</h3>
 
             <div className={styles.buttonsContainer}>
                 <button className={styles.button} onClick={loadDefault}>
