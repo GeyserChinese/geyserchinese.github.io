@@ -293,13 +293,13 @@ const ConfigEditorPage: React.FC = () => {
 
     const NoConfigSection = () => (
         <>
-            <h1><Translate id='pages.configeditor.noconfigselected.heading'>No config selected.</Translate></h1>
-            <h3 className={styles.fontNormal}><Translate id='pages.configeditor.noconfigselected.subheading'>上传
-                你自己的配置文件或者是选择默认配置!</Translate></h3>
+            <h1>没有选择配置文件</h1>
+            <h3 className={styles.fontNormal}>上传
+                你自己的配置文件或者是选择默认配置!</h3>
 
             <div className={styles.buttonsContainer}>
                 <button className={styles.button} onClick={loadDefault}>
-                    <Translate id='pages.configeditor.button.defaultconfig'>默认配置</Translate>
+                    默认配置
                 </button>
 
                 <button className={styles.button} onClick={() => uploadRef.current.click()}>
@@ -310,7 +310,7 @@ const ConfigEditorPage: React.FC = () => {
                         accept='.yml'
                         onChange={handleUpload}
                     />
-                    <Translate id='pages.configeditor.button.upload'>Upload</Translate>
+                    上传
                 </button>
             </div>
         </>
@@ -320,7 +320,7 @@ const ConfigEditorPage: React.FC = () => {
         <>
             <div className={styles.buttonsContainer} style={{marginBottom: '30px'}}>
                 <button className={styles.button} onClick={handleExport}>
-                    <Translate id='pages.configeditor.button.export'>Export</Translate>
+                    导出
                 </button>
             </div>
             {generateHTML(parsedConfig)}
